@@ -32,6 +32,11 @@ class userController {
         try {
             const { email, password } = req.body
             const serviceResponse = await this.userService.login(email, password);
+            res.cookie("debug", "set", {
+                httpOnly: false,
+                sameSite: "none",
+                secure: true
+            });
 
 
             res.cookie("UserRefreshToken", serviceResponse.userRefreshToken, {

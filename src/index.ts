@@ -5,21 +5,32 @@ import cors from "cors";
 import mongooseConnection from "./config/database_config";
 import userRouter from "./routes/userRoutes";
 const http = require('http');
+const app = express()
+app.use(cookieParser());
 
 dotenv.config();
 
 mongooseConnection();
-const app = express()
-app.use(cookieParser());
+
 app.use(express.json());
 
 
+// app.use(
+//     cors({
+//         // origin: "http://localhost:1234",
+//         origin: "https://shortme-inky.vercel.app",
+//         methods: "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+//         credentials: true // Allow credentials (cookies, HTTP authentication)
+//     })
+// );
 app.use(
     cors({
-        // origin: "http://localhost:1234",
-        origin: "https://shortme-inky.vercel.app",
-        methods: "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-        credentials: true // Allow credentials (cookies, HTTP authentication)
+        origin: [
+            "https://shortme-inky.vercel.app",
+            "https://shortme-j97fksm41-cprazalnazim-gmailcoms-projects.vercel.app",
+            "https://shortme-git-master-cprazalnazim-gmailcoms-projects.vercel.app"
+        ],
+        credentials: true
     })
 );
 
