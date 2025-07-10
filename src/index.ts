@@ -55,7 +55,7 @@ const http = require("http")
 
 dotenv.config()
 const app = express()
-
+app.set("trust proxy", 1);
 // ✅ 1. Set up CORS FIRST
 app.use(
     cors({
