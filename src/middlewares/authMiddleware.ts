@@ -33,12 +33,9 @@ const authMiddleware = (req: Request, res: Response, next: NextFunction): void =
     try {
         const decoded = jwt.verify(accessToken, secret_key) as { user_id: string, role: string };
         (req as any).user = decoded;
-        console.log("This is decoded ",decoded);
-        
-        console.log("decode user",(req as any).user );
-        
-        console.log("role decoded",(req as any).user.role);
-        
+
+        console.log("role decoded", (req as any).user.role);
+
         if ((req as any).user.role === 'user') {
             next();
             return;

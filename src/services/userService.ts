@@ -50,8 +50,8 @@ class userService {
             const comparePassword = await bcrypt.compare(password, userData.password as string);
             if (!comparePassword) throw new Error("Wrong password");
             if (userData.isUserBlocked) throw new Error("User is blocked");
-            const userToken = createToken(userData._id as string, process.env.userRole as string);
-            const userRefreshToken = createRefreshToken(userData._id as string, process.env.userRole as string);
+            const userToken = createToken(userData._id as string, process.env.USER_ROLE as string);
+            const userRefreshToken = createRefreshToken(userData._id as string, process.env.USER_ROLE as string);
             return { userData, userToken, userRefreshToken }
 
         } catch (error) {
