@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(
     cors({
         // origin: "http://localhost:1234",
-        origin: "https://shortme-inky.vercel.app/ ",
+        origin: "https://shortme-inky.vercel.app",
         methods: "GET, POST, PUT, DELETE, PATCH, OPTIONS",
         credentials: true // Allow credentials (cookies, HTTP authentication)
     })
