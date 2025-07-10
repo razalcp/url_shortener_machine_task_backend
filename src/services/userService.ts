@@ -77,8 +77,8 @@ class userService {
         return await this.userRepository.getUrlsByUserId(userId)
     };
 
-    getOriginalUrlForUser = async (shortCode: string, userId: string) => {
-        const urlDoc = await this.userRepository.findUrlByShortCodeAndUser(shortCode, userId);
+    getOriginalUrlForUser = async (shortCode: string) => {
+        const urlDoc = await this.userRepository.findUrlByShortCodeAndUser(shortCode);
 
         if (!urlDoc) {
             throw new Error("URL not found or unauthorized");

@@ -15,6 +15,6 @@ router.post('/login', userController.login)
 router.post('/shorten', authMiddleware, userController.handleShortenUrl)
 router.get("/urls", authMiddleware, userController.getUserUrls)
 router.get("/:shortCode", userController.handleRedirect);
-router.post('/userLogout', userController.logoutUser)
+router.post('/userLogout', authMiddleware, userController.logoutUser)
 
 export default router

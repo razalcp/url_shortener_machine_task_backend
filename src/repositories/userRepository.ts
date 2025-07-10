@@ -56,8 +56,8 @@ class userRepository {
     return await urlModel.find({ userId }).sort({ createdAt: -1 })
   }
 
-  findUrlByShortCodeAndUser = async (shortCode: string, userId: string) => {
-    return await urlModel.findOne({ shortCode, userId });
+  findUrlByShortCodeAndUser = async (shortCode: string) => {
+    return await urlModel.findOne({ shortCode});
   };
 }
 

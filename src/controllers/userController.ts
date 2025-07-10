@@ -102,14 +102,14 @@ class userController {
 
     handleRedirect = async (req: Request, res: Response) => {
         const { shortCode } = req.params;
-        const userId = req.user?.user_id
+        // const userId = req.user?.user_id
 
-        if (!userId || typeof userId !== "string") {
-            res.status(400).json({ message: "userId is required" });
-        }
+        // if (!userId || typeof userId !== "string") {
+        //     res.status(400).json({ message: "userId is required" });
+        // }
 
         try {
-            const originalUrl = await this.userService.getOriginalUrlForUser(shortCode, userId);
+            const originalUrl = await this.userService.getOriginalUrlForUser(shortCode);
             res.redirect(originalUrl);
         } catch (err) {
             console.error("Redirect error:", err);
