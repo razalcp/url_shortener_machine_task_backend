@@ -3,12 +3,12 @@ import { Request, Response, NextFunction } from 'express';
 import HTTP_statusCode from '../enums/httpStatusCode';
 import { createToken } from '../config/jwt_config';
 
-const secret_key = process.env.jwt_secret as string;
+const secret_key = process.env.JWT_SECRET as string;
 
 const authMiddleware = (req: Request, res: Response, next: NextFunction): void => {
     const accessToken = req.cookies?.UserAccessToken;
     const refreshToken = req.cookies?.UserRefreshToken;
-console.log("This is cookies",req.cookies);
+    console.log("This is cookies", req.cookies);
 
     if (!accessToken) {
         if (!refreshToken) {
