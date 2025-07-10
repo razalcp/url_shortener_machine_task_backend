@@ -59,14 +59,11 @@ app.set("trust proxy", 1);
 // ✅ 1. Set up CORS FIRST
 app.use(
     cors({
-        origin: [
-            "https://shortme-inky.vercel.app",
-            "https://shortme-j97fksm41-cprazalnazim-gmailcoms-projects.vercel.app",
-            "https://shortme-git-master-cprazalnazim-gmailcoms-projects.vercel.app"
-        ],
-        credentials: true
+        origin: "https://shortme-inky.vercel.app", // Vercel frontend domain
+        credentials: true // THIS is key
     })
-)
+);
+
 
 // ✅ 2. Then other middleware
 app.use(cookieParser())

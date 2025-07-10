@@ -8,6 +8,7 @@ const secret_key = process.env.jwt_secret as string;
 const authMiddleware = (req: Request, res: Response, next: NextFunction): void => {
     const accessToken = req.cookies?.UserAccessToken;
     const refreshToken = req.cookies?.UserRefreshToken;
+console.log("This is cookies",req.cookies);
 
     if (!accessToken) {
         if (!refreshToken) {
